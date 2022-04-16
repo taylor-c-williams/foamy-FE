@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAll } from './services'
+import ImageItem from './components/ImageItem'
 import './App.css'
 
 function App() {
@@ -12,23 +13,13 @@ function App() {
         setImages(res)
       })
   }, [pageNumber])
-
-  const handleClick = () => {
-    setPageNumber(pageNumber + 1)
-  }
   
   return (
     <div className='App'>
       hello
-      <ul>
-        {images.map((image) => (
-          <li key={image.id}>
-            {image.id}
-            <img src={image.url} alt={image.foamy} />
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleClick}>Next Page!</button>
+      <ImageItem images={images} /> 
+      {pageNumber > 1 && <button onClick={() => setPageNumber(pageNumber - 1)}>Previous Page!</button>}
+      {pageNumber < 350 && <button onClick={() => setPageNumber(pageNumber + 1)}>Next Page!</button> }
     </div>
   )
 }
