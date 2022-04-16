@@ -4,27 +4,31 @@ import './App.css'
 
 function App() {
   const [images, setImages] = useState([])
-  // const [setLoading] = useState(true)
+  const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
-    // setLoading(true)
-    getAll()
+    getAll(pageNumber)
       .then((res) => {
         setImages(res)
       })
-      // .finally(() => setLoading(false))
-  }, [])
+  }, [pageNumber])
 
+  const handleClick = () => {
+    setPageNumber(pageNumber + 1)
+  }
+  
   return (
     <div className='App'>
       hello
       <ul>
         {images.map((image) => (
           <li key={image.id}>
+            {image.id}
             <img src={image.url} alt={image.foamy} />
           </li>
         ))}
       </ul>
+      <button onClick={handleClick}>Next Page!</button>
     </div>
   )
 }
