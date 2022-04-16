@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   const [images, setImages] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [setLoading] = useState(true)
 
   useEffect(() => {
     setLoading(true)
