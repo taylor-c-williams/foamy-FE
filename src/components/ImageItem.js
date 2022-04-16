@@ -1,10 +1,10 @@
 import styles from './imageItem.module.css'
 export default function ImageItem({images}) {
-  console.log(images)
+
   function handleClick() {
 
   }
-  
+
   return (
     <section className={styles.imageCard}>      
       <ul className={styles.imageUL}>
