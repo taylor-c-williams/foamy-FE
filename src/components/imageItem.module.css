@@ -1,12 +1,10 @@
-.imageCard {
-}
 .imageCard img {
-  height: 20vw;
+  height: 25vw;
 }
 
 .imageUL {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2vw;
   list-style: none;
 }
