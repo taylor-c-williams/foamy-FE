@@ -4,15 +4,15 @@ import './App.css'
 
 function App() {
   const [images, setImages] = useState([])
-  const [setLoading] = useState(true)
+  // const [setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(true)
+    // setLoading(true)
     getAll()
       .then((res) => {
         setImages(res)
       })
-      .finally(() => setLoading(false))
+      // .finally(() => setLoading(false))
   }, [])
 
   return (
