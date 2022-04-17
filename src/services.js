@@ -1,6 +1,8 @@
 import request from 'superagent'
 
-const URL = `https://pacific-thicket-98495.herokuapp.com/api/v1/images`
+const URL = `https://floating-retreat-88641.herokuapp.com/https://foamy-be.herokuapp.com/api/v1/images`
+// const URL = `https://foamy-be.herokuapp.com/api/v1/images`
+// const URL = `https://pacific-thicket-98495.herokuapp.com/api/v1/images`
 // const URL = `localhost:7890/api/v1/images`
 const paginated = `?perPage=6&pageNumber=`
 
@@ -14,8 +16,10 @@ export async function getById(id) {
   return res.body
 }
 
-export async function updateStatus(id){
-  const res = await request.put(`${URL}/${id}`)
+export async function updateStatus(id, status){
+  const res = await request.patch(`${URL}/${id}`)
+  .send({foamy: status})
+  console.log(request.body)
   return res.body
 }
 

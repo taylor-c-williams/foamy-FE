@@ -19,8 +19,11 @@ useEffect(() => {
     })
 }, [id, image.foamy])
 
+console.log(image.foamy)
 const toggleFoamy = () => {
-  updateStatus(image.id)
+  updateStatus(image.id, !image.foamy)
+  setImage(image.foamy)
+  console.log(image)
 }
   return (
     <div className={styles.ImageItem}>
@@ -28,6 +31,7 @@ const toggleFoamy = () => {
 
       <img src={image.url} alt={`Item Number: ${image.id}`}/>
       <h1>Foam Status: { image.foamy ? image.foamy : 'Undefined'}</h1>
+      <h1>{image.foamy}</h1>
       <button onClick={toggleFoamy}>Foam!</button>
     </div>
   )
