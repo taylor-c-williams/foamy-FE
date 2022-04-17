@@ -4,7 +4,6 @@ import request from 'superagent'
 // errors:
 // https://github.com/Rob--W/cors-anywhere
 const URL = `https://floating-retreat-88641.herokuapp.com/https://foamy-be.herokuapp.com/api/v1/images`
-// const URL = `https://foamy-be.herokuapp.com/api/v1/images`
 const paginated = `?perPage=6&pageNumber=`
 
 export async function getAll(pageNumber) {

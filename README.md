@@ -7,3 +7,5 @@ https://foamy-be.herokuapp.com/api/v1/images
 Lost a day fighting some nasty CORS errors. Tried several approaches to set Access-Control-Allow-Origin/Methods etc. headers to no avail. I ultimately used the CORS Anywhere workaround to set up & hit a proxy server in order to access my foamy server from the client side.
 More details:
 https://github.com/Rob--W/cors-anywhere
+
+(See backend repo commits to Main for CORS/Request Header fix attempts)
