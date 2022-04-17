@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getById } from '../../services'
+import { getById, updateStatus } from '../../services'
+import styles from './imageItem.module.css'
 
 export default function ImageItem() {
   const [image, setImage] = useState({})
@@ -16,13 +17,18 @@ useEffect(() => {
     .then(() => {
       setLoading(false)
     })
-}, [id])
+}, [id, image.foamy])
 
+const toggleFoamy = () => {
+  updateStatus(image.id)
+}
   return (
-
-    <div>
+    <div className={styles.ImageItem}>
       {loading && 'Loading!'}
-      {image.url}
-    {image.id}</div>
+
+      <img src={image.url} alt={`Item Number: ${image.id}`}/>
+      <h1>Foam Status: { image.foamy ? image.foamy : 'Undefined'}</h1>
+      <button onClick={toggleFoamy}>Foam!</button>
+    </div>
   )
 }
