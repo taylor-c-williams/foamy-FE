@@ -19,11 +19,9 @@ useEffect(() => {
     })
 }, [id, image.foamy])
 
-console.log(image.foamy)
 const toggleFoamy = () => {
   updateStatus(image.id, !image.foamy)
   setImage(image.foamy)
-  console.log(image)
 }
   return (
     <div className={styles.ImageItem}>
