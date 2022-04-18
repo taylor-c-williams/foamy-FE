@@ -1,3 +1,18 @@
-.imageItem img{
-  display: block;
+.itemWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.imageItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 3rem;
+  padding: 1vw;
 }
