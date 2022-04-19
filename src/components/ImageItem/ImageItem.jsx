@@ -18,18 +18,25 @@ export default function ImageItem() {
     const fetchData = async () => {
       const data = await getById(id)
       setImage({ ...data })
-      console.log(data)
     }
     fetchData()
     setLoading(false)
   }, [id, image.foamy])
 
-  const toggleFoamy = () => {
-    const res = updateStatus(image.id, !image.foamy)
+  const handleFoamy = () => {
+    const res = updateStatus(image.id, true)
     setImage(res)
     console.log(image)
   }
 
+  const handleNotFoamy = () => {
+    const res = updateStatus(image.id, false)
+    setImage(res)
+    console.log(image)
+  }
+
+  // To refactor: coming up with some interesting errs re: useNavigate/react router v6
+  // Would prefer to use a single handler & pass 'prev', 'next', 'home' as params
   const handleNextImg = () => {
     navigate(`/${Number(id) + 1}`)
   }
@@ -54,7 +61,8 @@ export default function ImageItem() {
           {image.foamy === null && ' Unclassified'}
         </h1>
         Image ID: {image.id}
-        <button onClick={toggleFoamy}>Toggle Status!</button>
+        <button onClick={handleFoamy}>Foamy!</button>
+        <button onClick={handleNotFoamy}>Not Foamy!</button>
         <button onClick={handlePrevImg}>Previous Image</button>
         <button onClick={handleNextImg}>Next Image</button>
         <button onClick={handleHomeNav}>Home</button>

@@ -9,3 +9,5 @@ More details:
 https://github.com/Rob--W/cors-anywhere
 
 (See backend repo commits to Main for CORS/Request Header fix attempts)
+
+Magnifying glass icons created by Freepik - Flaticon
