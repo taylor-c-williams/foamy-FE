@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from './imageCatalog.module.css'
-import { updateStatus, getAll, getAllFoamy } from '../../services'
+import { getAll } from '../../services'
 
 import ImageMap from './ImageMap'
 
