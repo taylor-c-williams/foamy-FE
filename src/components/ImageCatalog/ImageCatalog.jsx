@@ -24,7 +24,12 @@ export default function ImageCatalog() {
       <h1>{loading && 'Loading!'}</h1>
       <CatalogNav />
 
-      <ImageMap images={images} setImages={setImages} pageNumber={pageNumber} getImages={getAll}/>
+      <ImageMap
+        images={images}
+        setImages={setImages}
+        pageNumber={pageNumber}
+        getImages={getAll}
+      />
 
       <CatalogNav />
     </section>
