@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getUncategorized } from '../../services'
 import styles from './imageCatalog.module.css'
-import { getAll } from '../../services'
 
 import ImageMap from './ImageMap'
 
-export default function ImageCatalog() {
+export default function UncategorizedImages() {
   const [images, setImages] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [loading, setLoading] = useState(false)
@@ -14,11 +14,11 @@ export default function ImageCatalog() {
 
   useEffect(() => {
     setLoading(true)
-    getAll(pageNumber).then((res) => {
+    getUncategorized(pageNumber).then((res) => {
       setImages(res)
     })
     setLoading(false)
-  }, [pageNumber, images])
+  }, [pageNumber])
 
   const navHandler = (pageNumber) => {
     setPageNumber(pageNumber)
@@ -29,9 +29,7 @@ export default function ImageCatalog() {
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
 
-      <button onClick={() => navigate('/foamy')}>Get all foamy</button>
-      <button onClick={() => navigate('/not-foamy')}>Get all not foamy</button>
-      <button onClick={() => navigate('/uncategorized')}>Get all uncategorized</button>
+      <button onClick={() => navigate('/')}>Back to Main</button>
       <ImageMap images={images} />
       {pageNumber > 1 && (
         <button onClick={() => navHandler(pageNumber - 1)}>
