@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getUncategorized } from '../../services'
-import { usePage } from '../../Context/PageContext'
+import { usePage } from '../../context/PageContext'
+import CatalogNav from '../CatalogNav'
 import ImageMap from '../ImageCatalog/ImageMap'
 import styles from '../ImageCatalog/imageCatalog.module.css'
 
@@ -21,11 +22,6 @@ export default function UncategorizedImages() {
     setLoading(false)
   }, [pageNumber])
 
-  const navHandler = (pageNumber) => {
-    setPageNumber(pageNumber)
-    window.scrollTo(0, 0)
-  }
-
   const backHomeHandler = () => {
     navigate('/')
     setPageNumber(1)
@@ -34,22 +30,18 @@ export default function UncategorizedImages() {
   return (
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
-
+      <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
+
       <ImageMap
         images={images}
         setImages={setImages}
         pageNumber={pageNumber}
         getImages={getUncategorized}
       />
-      {pageNumber > 1 && (
-        <button onClick={() => navHandler(pageNumber - 1)}>
-          Previous Page
-        </button>
-      )}
-      {pageNumber < 350 && (
-        <button onClick={() => navHandler(pageNumber + 1)}>Next Page</button>
-      )}
+
+      <CatalogNav />
+      <button onClick={backHomeHandler}>Back to Main</button>
     </section>
   )
 }

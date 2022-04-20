@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getFoamy } from '../../services'
-import { usePage } from '../../Context/PageContext'
+import { usePage } from '../../context/PageContext'
+import CatalogNav from '../CatalogNav'
 import styles from '../ImageCatalog/imageCatalog.module.css'
 import ImageMap from '../ImageCatalog/ImageMap'
 
@@ -29,6 +30,7 @@ export default function ImageCatalog() {
   return (
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
+      <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
 
       <ImageMap
@@ -37,6 +39,9 @@ export default function ImageCatalog() {
         pageNumber={pageNumber}
         getImages={getFoamy}
       />
+
+      <CatalogNav />
+      <button onClick={backHomeHandler}>Back to Main</button>
     </section>
   )
 }
