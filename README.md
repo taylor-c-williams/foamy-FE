@@ -39,6 +39,7 @@ https://foamy-be.herokuapp.com/api/v1/images
 - Refactor all buttons & toggle handlers into their own components
 - Handle images in Context rather than prop drilling state
 - Make arrow key navigation more apparent on imageItem component
+- Styling
 
 ---
 
