@@ -33,12 +33,16 @@ export default function ImageCatalog() {
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
 
-      <ImageMap
-        images={images}
-        setImages={setImages}
-        pageNumber={pageNumber}
-        getImages={getFoamy}
-      />
+      {images === [] ? (
+        <ImageMap
+          images={images}
+          setImages={setImages}
+          pageNumber={pageNumber}
+          getImages={getFoamy}
+        />
+      ) : (
+        <p>No Images Categorized as Foamy!</p>
+      )}
 
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
