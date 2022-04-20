@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import useKeypress from 'react-use-keypress'
 import { getById, updateStatus } from '../../services'
 import styles from './imageItem.module.css'
 
@@ -9,8 +10,6 @@ export default function ImageItem() {
 
   const { id } = useParams()
   const navigate = useNavigate()
-
-  // const pageNumber = Math.floor(id / 6)
 
   // Grab Image by ID asynchronously, save image obj in state, fetch & rerender on image state change (Foamy toggle), Display 'Loading' while data is being fetched
   useEffect(() => {
@@ -48,6 +47,15 @@ export default function ImageItem() {
   const handleHomeNav = () => {
     navigate(`/`)
   }
+
+  // Keydown Listener
+  useKeypress(['ArrowLeft', 'ArrowRight'], (e) => {
+    if (e.key === 'ArrowLeft') {
+      handlePrevImg()
+    } else {
+      handleNextImg()
+    }
+  })
 
   return (
     <div className={styles.itemWrapper}>
