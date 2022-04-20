@@ -34,7 +34,7 @@ export default function ImageCatalog() {
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
 
-      {images === [] ? (
+      {images !== [] ? (
         <ImageMap
           images={images}
           setImages={setImages}
