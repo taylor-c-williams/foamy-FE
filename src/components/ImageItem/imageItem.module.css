@@ -1,5 +1,5 @@
 .itemWrapper {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 }
@@ -11,6 +11,23 @@
   align-items: center;
 }
 
+.imageItem img {
+  height: 50vw;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2vw;
+}
+
+.buttonWrapper img {
+  height: 3vw;
+}
+
 button {
   padding: 1vw;
+  display: inline;
 }

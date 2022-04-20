@@ -2,10 +2,9 @@
 // import { MemoryRouter } from 'react-router-dom'
 // import { getById, getAll } from './services'
 // import App from './App'
-
 describe('Front End Behavioral tests', () => {
 
-    //  HTTP request method tests are not working with the proxy server CORS hack. 'Bad Request' Error
+  //  HTTP request method tests are not working with the proxy server CORS hack. 'Bad Request' Error
   //  Solution would be to set up a mock server
 
     it('is a dummy test to pass CI', () => {

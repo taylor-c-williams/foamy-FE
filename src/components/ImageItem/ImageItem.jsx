@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import useKeypress from 'react-use-keypress'
-import { getById, updateStatus } from '../../services'
+import { updateStatus, getById } from '../../services'
+import leftArrow from '../../assets/left-arrow.png'
+import rightArrow from '../../assets/right-arrow.png'
 import styles from './imageItem.module.css'
 
 export default function ImageItem() {
@@ -30,21 +32,6 @@ export default function ImageItem() {
   const handleNotFoamy = () => {
     const res = updateStatus(image.id, false)
     setImage(res)
-    console.log(image)
-  }
-
-  // To refactor: coming up with some interesting errs re: useNavigate/react router v6
-  // Would prefer to use a single handler & pass 'prev', 'next', 'home' as params
-  const handleNextImg = () => {
-    navigate(`/${Number(id) + 1}`)
-  }
-
-  const handlePrevImg = () => {
-    navigate(`/${Number(id) - 1}`)
-  }
-
-  const handleHomeNav = () => {
-    navigate(`/`)
   }
 
   // Keydown Listener
@@ -56,10 +43,37 @@ export default function ImageItem() {
     }
   })
 
+  // To refactor: coming up with some interesting errs re: useNavigate/react router v6
+  // Would prefer to use a single handler & pass 'prev', 'next', 'home' as params
+  const handleNextImg = () => {
+    id < 2100 && navigate(`/${Number(id) + 1}`)
+  }
+
+  const handlePrevImg = () => {
+    id > 1 && navigate(`/${Number(id) - 1}`)
+  }
+
+  const handleHomeNav = () => {
+    navigate(`/`)
+  }
+
   return (
     <div className={styles.itemWrapper}>
       <h1>{loading && 'Loading!'}</h1>
-      <section className={styles.imageItem}>
+
+      {/* Navigation */}
+      <nav className={styles.buttonWrapper}>
+        <img src={leftArrow} alt={'Use Arrow Buttons to Navigate'} />
+        <button onClick={handlePrevImg}>Previous Image</button>
+        <button onClick={handleFoamy}>Foamy!</button>
+        <button onClick={handleNotFoamy}>Not Foamy!</button>
+        <button onClick={handleHomeNav}>Home</button>
+        <button onClick={handleNextImg}>Next Image</button>
+        <img src={rightArrow} alt={'Use Arrow Buttons to Navigate'} />
+      </nav>
+
+      {/* Content */}
+      <div className={styles.imageItem}>
         <img src={image.url} alt={`Item Number: ${image.id}`} />
         <h1>
           Status:
@@ -68,12 +82,18 @@ export default function ImageItem() {
           {image.foamy === null && ' Unclassified'}
         </h1>
         Image ID: {image.id}
+      </div>
+
+      {/* Navigation */}
+      <nav className={styles.buttonWrapper}>
+        <img src={leftArrow} alt={'Use Arrow Buttons to Navigate'} />
+        <button onClick={handlePrevImg}>Previous Image</button>
         <button onClick={handleFoamy}>Foamy!</button>
         <button onClick={handleNotFoamy}>Not Foamy!</button>
-        <button onClick={handlePrevImg}>Previous Image</button>
-        <button onClick={handleNextImg}>Next Image</button>
         <button onClick={handleHomeNav}>Home</button>
-      </section>
+        <button onClick={handleNextImg}>Next Image</button>
+        <img src={rightArrow} alt={'Use Arrow Buttons to Navigate'} />
+      </nav>
     </div>
   )
 }

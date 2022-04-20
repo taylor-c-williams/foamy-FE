@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAll } from '../../services'
 import { usePage } from '../../Context/PageContext'
 import ImageMap from './ImageMap'
-import CatalogNav from './CatalogNav'
+import CatalogNav from '../CatalogNav'
 import styles from './imageCatalog.module.css'
 
 export default function ImageCatalog() {

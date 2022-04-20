@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getUncategorized } from '../../services'
-import styles from './imageCatalog.module.css'
-
-import ImageMap from './ImageMap'
+import { usePage } from '../../Context/PageContext'
+import ImageMap from '../ImageCatalog/ImageMap'
+import styles from '../ImageCatalog/imageCatalog.module.css'
 
 export default function UncategorizedImages() {
   const [images, setImages] = useState([])
-  const [pageNumber, setPageNumber] = useState(1)
   const [loading, setLoading] = useState(false)
 
+  const { pageNumber, setPageNumber } = usePage()
   const navigate = useNavigate()
 
+  // Get & Set all Uncategorized images on render & page number update
   useEffect(() => {
     setLoading(true)
     getUncategorized(pageNumber).then((res) => {
@@ -25,11 +26,16 @@ export default function UncategorizedImages() {
     window.scrollTo(0, 0)
   }
 
+  const backHomeHandler = () => {
+    navigate('/')
+    setPageNumber(1)
+  }
+
   return (
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
 
-      <button onClick={() => navigate('/')}>Back to Main</button>
+      <button onClick={backHomeHandler}>Back to Main</button>
       <ImageMap
         images={images}
         setImages={setImages}

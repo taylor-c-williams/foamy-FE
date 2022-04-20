@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getFoamy } from '../../services'
-import styles from './imageCatalog.module.css'
-
-import ImageMap from './ImageMap'
+import { usePage } from '../../Context/PageContext'
+import styles from '../ImageCatalog/imageCatalog.module.css'
+import ImageMap from '../ImageCatalog/ImageMap'
 
 export default function ImageCatalog() {
   const [images, setImages] = useState([])
-  const [pageNumber, setPageNumber] = useState(1)
   const [loading, setLoading] = useState(false)
 
+  const { pageNumber, setPageNumber } = usePage()
   const navigate = useNavigate()
 
+  // Get & Set all foamy images on render & page number update
   useEffect(() => {
     setLoading(true)
     getFoamy(pageNumber).then((res) => {
@@ -20,16 +21,16 @@ export default function ImageCatalog() {
     setLoading(false)
   }, [pageNumber])
 
-  const navHandler = (pageNumber) => {
-    setPageNumber(pageNumber)
-    window.scrollTo(0, 0)
+  const backHomeHandler = () => {
+    navigate('/')
+    setPageNumber(1)
   }
 
   return (
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
+      <button onClick={backHomeHandler}>Back to Main</button>
 
-      <button onClick={() => navigate('/')}>Back to Main</button>
       <ImageMap
         images={images}
         setImages={setImages}

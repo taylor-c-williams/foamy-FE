@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom'
-import { usePage } from '../../Context/PageContext.jsx'
-import styles from './ImageCatalog'
+import { usePage } from '../Context/PageContext.jsx'
+import styles from './ImageCatalog/imageCatalog.module.css'
 
 export default function CatalogNav() {
   const { pageNumber, setPageNumber } = usePage()
   const navigate = useNavigate()
 
-  // Pagination is set in state, useEffect rerenders when pageNumber is updated
   const navHandler = (pageNumber) => {
     setPageNumber(pageNumber)
     window.scrollTo(0, 0)
