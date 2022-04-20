@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getUncategorized } from '../../services'
-import { usePage } from '../../context/PageContext'
+import { usePage } from '../../Context/PageContext'
 import CatalogNav from '../CatalogNav'
 import ImageMap from '../ImageCatalog/ImageMap'
 import styles from '../ImageCatalog/imageCatalog.module.css'

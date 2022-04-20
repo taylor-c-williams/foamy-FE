@@ -10,3 +10,10 @@ html {
   padding: 2vw 5vw 5vw 5vw;
   font-size: 1.25rem;
 }
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: purple;
+  font-size: 0.75rem;
+}

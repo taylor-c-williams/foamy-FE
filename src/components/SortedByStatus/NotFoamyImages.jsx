@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getNotFoamy } from '../../services'
-import { usePage } from '../../context/PageContext'
+import { usePage } from '../../Context/PageContext'
 import CatalogNav from '../CatalogNav'
 import styles from '../ImageCatalog/imageCatalog.module.css'
 import ImageMap from '../ImageCatalog/ImageMap'

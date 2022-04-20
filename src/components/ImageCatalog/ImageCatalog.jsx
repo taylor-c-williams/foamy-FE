@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAll } from '../../services'
-import { usePage } from '../../context/PageContext'
+import { usePage } from '../../Context/PageContext'
 import ImageMap from './ImageMap'
 import CatalogNav from '../CatalogNav'
 import styles from './imageCatalog.module.css'

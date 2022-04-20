@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { usePage } from '../context/PageContext.jsx'
+import { usePage } from '../Context/PageContext.jsx'
 import styles from './ImageCatalog/imageCatalog.module.css'
 
 export default function CatalogNav() {
