@@ -31,7 +31,7 @@ export default function ImageMap({ images, setImages, pageNumber, getImages }) {
             <section className={styles.status}>
               {image.foamy === true && '🍺 Foamy'}
               {image.foamy === false && '🚫 Not Foamy'}
-              {image.foamy === null && '❓ Unclassified'}
+              {image.foamy === null && '❓ Uncategorized'}
             </section>
 
             {/* Buttons */}

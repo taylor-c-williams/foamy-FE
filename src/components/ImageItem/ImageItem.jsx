@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import useKeypress from 'react-use-keypress'
 import { updateStatus, getById } from '../../services'
+import useKeypress from 'react-use-keypress'
 import leftArrow from '../../assets/left-arrow.png'
 import rightArrow from '../../assets/right-arrow.png'
 import styles from './imageItem.module.css'
@@ -79,7 +79,7 @@ export default function ImageItem() {
           Status:
           {image.foamy && ' Foamy 🍺'}
           {image.foamy === false && ' Not Foamy 🚫'}
-          {image.foamy === null && ' Unclassified'}
+          {image.foamy === null && ' Uncategorized ❓'}
         </h1>
         Image ID: {image.id}
       </div>
