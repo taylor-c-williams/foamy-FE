@@ -30,7 +30,12 @@ export default function UncategorizedImages() {
       {loading && 'Loading!'}
 
       <button onClick={() => navigate('/')}>Back to Main</button>
-      <ImageMap images={images} />
+      <ImageMap
+        images={images}
+        setImages={setImages}
+        pageNumber={pageNumber}
+        getImages={getUncategorized}
+      />
       {pageNumber > 1 && (
         <button onClick={() => navHandler(pageNumber - 1)}>
           Previous Page

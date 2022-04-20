@@ -30,7 +30,12 @@ export default function ImageCatalog() {
       {loading && 'Loading!'}
 
       <button onClick={() => navigate('/')}>Back to Main</button>
-      <ImageMap images={images} />
+      <ImageMap
+        images={images}
+        setImages={setImages}
+        pageNumber={pageNumber}
+        getImages={getNotFoamy}
+      />
       {pageNumber > 1 && (
         <button onClick={() => navHandler(pageNumber - 1)}>
           Previous Page

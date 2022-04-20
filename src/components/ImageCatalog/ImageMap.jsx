@@ -1,14 +1,17 @@
-import { Link } from 'react-router-dom'
-import { updateStatus, getAll } from '../../services'
+import { Link, useNavigate } from 'react-router-dom'
+import { updateStatus } from '../../services'
 import styles from './imageCatalog.module.css'
 import zoom from '../../assets/magnifier.png'
 
-export default function ImageMap({ images, setImages, pageNumber }) {
+export default function ImageMap({ images, setImages, pageNumber, getImages }) {
+  //
   async function updateFoamStatus(imageId, status) {
     await updateStatus(imageId, status)
-    const res = await getAll(pageNumber)
+    const res = await getImages(pageNumber)
     setImages(res)
   }
+
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -22,25 +25,27 @@ export default function ImageMap({ images, setImages, pageNumber }) {
                 className={styles.bioreactorImg}
                 alt="A cool bioreactor!"
               />
-              <section className={styles.status}>
-                {image.foamy === true && '🍺'}
-                {image.foamy === false && '🚫'}
-                {image.foamy === null && '❓'}
-              </section>
-              <button>
+            </Link>
+            <section className={styles.status}>
+              {image.foamy === true && '🍺 Foamy'}
+              {image.foamy === false && '🚫 Not Foamy'}
+              {image.foamy === null && '❓ Unclassified'}
+            </section>
+            <div className={styles.buttonsDiv}>
+              <button onClick={() => navigate(`/${image.id}`)}>
                 <img
                   src={zoom}
                   className={styles.zoomIcon}
                   alt={'Click to zoom'}
                 />
               </button>
-            </Link>
-            <button onClick={() => updateFoamStatus(image.id, true)}>
-              Foamy
-            </button>
-            <button onClick={() => updateFoamStatus(image.id, false)}>
-              Not Foamy
-            </button>
+              <button onClick={() => updateFoamStatus(image.id, true)}>
+                Foamy
+              </button>
+              <button onClick={() => updateFoamStatus(image.id, false)}>
+                Not Foamy
+              </button>
+            </div>
           </li>
         ))}
       </ul>

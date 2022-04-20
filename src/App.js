@@ -11,13 +11,13 @@ function App() {
 
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="/:id" element={<ImageItem />}/>
-      <Route path="/foamy" element={<FoamyImages />}/>
-      <Route path="/not-foamy" element={<NotFoamyImages />}/>
-      <Route path="/uncategorized" element={<UncategorizedImages />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/:id" element={<ImageItem />}/>
+        <Route path="/foamy" element={<FoamyImages />}/>
+        <Route path="/not-foamy" element={<NotFoamyImages />}/>
+        <Route path="/uncategorized" element={<UncategorizedImages />} />
+      </Routes>
     </>
   )
 }

@@ -4,9 +4,9 @@
 
 body,
 html {
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   margin: 0;
-  padding: 5vw;
+  padding: 2vw 5vw 5vw 5vw;
   font-size: 1.25rem;
 }

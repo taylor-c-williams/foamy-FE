@@ -1,9 +1,10 @@
 import request from 'superagent'
 
-// I am using a hack called CORS Anywhere to set up a proxy server to work around some nasty CORS
-// errors:
+// I am using a hack called CORS Anywhere to set up a proxy server and circumvent some nasty CORS errors:
 // https://github.com/Rob--W/cors-anywhere
 const URL = `https://floating-retreat-88641.herokuapp.com/https://foamy-be.herokuapp.com/api/v1/images`
+
+// Pagination 
 const paginated = `?perPage=6&pageNumber=`
 
 export async function getAll(pageNumber) {

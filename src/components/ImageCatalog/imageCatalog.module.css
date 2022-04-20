@@ -1,3 +1,26 @@
+.imageMap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: inline;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .imageUL {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,20 +38,16 @@ ul {
 }
 
 li {
-  display: inline-block;
+  display: inline;
   padding: 10px;
 }
 
-li img{
+li img {
   height: 25vw;
 }
 
-.status {
-  display: inline;
-}
-
 .zoomIcon {
-  height:2vw;
+  height: 2vw;
 }
 
 button {

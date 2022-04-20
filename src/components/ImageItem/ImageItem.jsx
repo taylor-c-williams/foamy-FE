@@ -11,17 +11,16 @@ export default function ImageItem() {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  // Grab Image by ID asynchronously, save image obj in state, fetch & rerender on image state change (Foamy toggle), Display 'Loading' while data is being fetched
+  // Set images in state, display loading message, rerender on state change
   useEffect(() => {
     setLoading(true)
-    const fetchData = async () => {
-      const data = await getById(id)
-      setImage({ ...data })
-    }
-    fetchData()
+    getById(id).then((res) => {
+      setImage(res)
+    })
     setLoading(false)
   }, [id, image.foamy])
 
+  // Toggle Foamy/Not Foamy
   const handleFoamy = () => {
     const res = updateStatus(image.id, true)
     setImage(res)
@@ -59,7 +58,7 @@ export default function ImageItem() {
 
   return (
     <div className={styles.itemWrapper}>
-      {loading && 'Loading!'}
+      <h1>{loading && 'Loading!'}</h1>
       <section className={styles.imageItem}>
         <img src={image.url} alt={`Item Number: ${image.id}`} />
         <h1>
