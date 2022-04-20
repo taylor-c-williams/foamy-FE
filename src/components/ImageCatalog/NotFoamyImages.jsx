@@ -5,7 +5,7 @@ import styles from './imageCatalog.module.css'
 
 import ImageMap from './ImageMap'
 
-export default function NotFoamyImages() {
+export default function ImageCatalog() {
   const [images, setImages] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [loading, setLoading] = useState(false)

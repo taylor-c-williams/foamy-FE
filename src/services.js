@@ -32,9 +32,5 @@ export async function getNotFoamy(pageNumber){
   return res.body
 }
 
-export async function getUncategorized(pageNumber){
-  const res = await request.get(`${URL}/status/uncategorized${paginated}${pageNumber}`)
-  return res.body
-}
 
 

@@ -31,7 +31,6 @@ export default function ImageCatalog() {
 
       <button onClick={() => navigate('/foamy')}>Get all foamy</button>
       <button onClick={() => navigate('/not-foamy')}>Get all not foamy</button>
-      <button onClick={() => navigate('/uncategorized')}>Get all uncategorized</button>
       <ImageMap images={images} />
       {pageNumber > 1 && (
         <button onClick={() => navHandler(pageNumber - 1)}>
