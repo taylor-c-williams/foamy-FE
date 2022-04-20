@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getAllFoamy } from '../../services'
+import { getFoamy } from '../../services'
 import styles from './imageCatalog.module.css'
 
 import ImageMap from './ImageMap'
@@ -14,7 +14,7 @@ export default function ImageCatalog() {
 
   useEffect(() => {
     setLoading(true)
-    getAllFoamy(pageNumber).then((res) => {
+    getFoamy(pageNumber).then((res) => {
       setImages(res)
     })
     setLoading(false)
@@ -29,7 +29,7 @@ export default function ImageCatalog() {
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
 
-      <button onClick={() => navigate('/foamy')}>Get all foamy</button>
+      <button onClick={() => navigate('/')}>Back to Main</button>
       <ImageMap images={images} />
       {pageNumber > 1 && (
         <button onClick={() => navHandler(pageNumber - 1)}>

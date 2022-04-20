@@ -22,8 +22,13 @@ export async function updateStatus(id, status){
   return res.body
 }
 
-export async function getAllFoamy(pageNumber){
+export async function getFoamy(pageNumber){
   const res = await request.get(`${URL}/status/foamy${paginated}${pageNumber}`)
+  return res.body
+}
+
+export async function getNotFoamy(pageNumber){
+  const res = await request.get(`${URL}/status/not-foamy${paginated}${pageNumber}`)
   return res.body
 }
 
