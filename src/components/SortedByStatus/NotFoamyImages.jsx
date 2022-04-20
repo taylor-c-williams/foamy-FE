@@ -27,18 +27,23 @@ export default function ImageCatalog() {
     setPageNumber(1)
   }
 
+  console.log(images)
   return (
     <section className={styles.imageCatalog}>
       {loading && 'Loading!'}
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
 
-      <ImageMap
-        images={images}
-        setImages={setImages}
-        pageNumber={pageNumber}
-        getImages={getNotFoamy}
-      />
+      {images === [] ? (
+        <ImageMap
+          images={images}
+          setImages={setImages}
+          pageNumber={pageNumber}
+          getImages={getNotFoamy}
+        />
+      ) : (
+        <p>No Images Categorized as Not Foamy!</p>
+      )}
 
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>

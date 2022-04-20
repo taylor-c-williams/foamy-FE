@@ -33,12 +33,16 @@ export default function UncategorizedImages() {
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
 
-      <ImageMap
-        images={images}
-        setImages={setImages}
-        pageNumber={pageNumber}
-        getImages={getUncategorized}
-      />
+      {images === [] ? (
+        <ImageMap
+          images={images}
+          setImages={setImages}
+          pageNumber={pageNumber}
+          getImages={getUncategorized}
+        />
+      ) : (
+        <p>No Images are Uncategorized!</p>
+      )}
 
       <CatalogNav />
       <button onClick={backHomeHandler}>Back to Main</button>
