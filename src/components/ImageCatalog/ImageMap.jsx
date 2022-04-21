@@ -23,7 +23,7 @@ export default function ImageMap({ images, setImages, pageNumber, getImages }) {
               <img
                 src={image.url}
                 className={styles.bioreactorImg}
-                alt="A cool bioreactor!"
+                alt="A cool bioreactor!!"
               />
             </Link>
 
